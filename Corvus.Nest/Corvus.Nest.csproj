@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\social\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\.nojekyll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
