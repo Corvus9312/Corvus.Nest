@@ -21,4 +21,12 @@
     <Folder Include="wwwroot\images\social\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\fonts\montserrat\montserrat-bold-webfont.woff2" />
+    <None Include="wwwroot\fonts\montserrat\montserrat-extrabold-webfont.woff2" />
+    <None Include="wwwroot\fonts\montserrat\montserrat-medium-webfont.woff2" />
+    <None Include="wwwroot\fonts\montserrat\montserrat-regular-webfont.woff2" />
+    <None Include="wwwroot\fonts\montserrat\montserrat-semibold-webfont.woff2" />
+  </ItemGroup>
+
 </Project>

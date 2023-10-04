@@ -1,7 +1,8 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+body {
+    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+    font-family: "微軟正黑體", sans-serif;
 }
 
 h1:focus {
@@ -62,3 +63,23 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.indent-0 {
+    text-indent: 0em;
+}
+
+.indent-1 {
+    text-indent: 1em;
+}
+
+.indent-2 {
+    text-indent: 2em;
+}
+
+.indent-3 {
+    text-indent: 3em;
+}
+
+.indent-4 {
+    text-indent: 4em;
+}

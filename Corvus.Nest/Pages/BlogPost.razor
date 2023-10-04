@@ -1,0 +1,6 @@
+﻿@page "/blog/{PostID:int}"
+@inherits BlogPostBase
+
+<article class="post ms-auto">
+    @((MarkupString)PostHtml)
+</article>
