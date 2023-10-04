@@ -7,7 +7,7 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "Corvus.Nest.dll": "sha256-LyrjmUPQ\/hb+PcR01eU58Nb5v0IAp7zYtM063\/+4HTw=",
+      "Corvus.Nest.dll": "sha256-DgFGUAomvzW1jVUh46CbZDzGh8qr9189LM9o16pxrVs=",
       "Microsoft.AspNetCore.Components.dll": "sha256-D29skTR6TJFncPTzbm7OylXKTccTFs7w7rH25UPydbg=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-LaU5h\/kG6KKVOZ\/WTHBQVh6A3o0P40+IQdUc9XRNZ4s=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-Cz+Qub62B2C6q9BicwOBoZ+wNBCUdJi4h0VOooSGrPM=",
