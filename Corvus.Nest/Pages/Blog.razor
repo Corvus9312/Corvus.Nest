@@ -6,7 +6,7 @@
 <div class="blog-content">
     <section class="blog-post">
         <article class="first">
-            <a href="https://localhost:7269/Corvus.Nest/blog/1" class="text-dark">
+            <a href="/Corvus.Nest/blog/1" class="text-dark">
                 <h2 class="fw-bold">Blazor-前言</h2>
                 <p class="text-secondary d-flex align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-calendar3" viewBox="0 0 16 16">
@@ -24,3 +24,9 @@
         </article>
     </section>
 </div>
+
+@code{
+
+    [Inject]
+    public NavigationManager Navigator { get; set; } = null!;
+}
