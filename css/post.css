@@ -1,0 +1,11 @@
+﻿.post {
+    padding: 1.5rem 3rem 0 3rem
+}
+
+.post-content {
+    margin-bottom: 2px;
+}
+
+    .post-content ul li {
+        text-indent: 0em;
+    }
