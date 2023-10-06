@@ -1,0 +1,83 @@
+﻿<h1 class="text-center fw-bolder">Blazor(4)-Blazor 裝載模型</h1>
+<div class="post-content indent-2 p-3">
+    我們在建立專案時，有看到Blazor Server及Blazor WebAssembly(wasm)兩種Blazor專案。
+    這兩個專案就是在簡介時有提到的Server Side及Client Side。本篇我們來探討這兩種專案的架構及優缺點。
+</div>
+<h4 class="fw-bold pt-2">Blazor WebAssembly</h4>
+<div class="post-content indent-2">
+    <img src="images\posts\blazors\blazor-wasm-structure.png" style="width: 100%" />
+    <p class="text-center indent-0">
+        圖：Blazor WebAssembly Model架構，
+        <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-7.0">圖片來源</a>
+    </p>
+    <p>wasm是Client Side的專案，程式會部屬成靜態檔案至Web Server，所有UI及事件皆會在客戶端直接處理</p>
+    <p class="list-title">wasm模型的優點：</p>
+    <ol>
+        <li>事件及UI完全由瀏覽器處理，減少與Server的溝通，降低Server的負擔</li>
+        <li>沒有Server的相依性，當伺服器離線時，程式仍可正常運作。</li>
+        <li>以靜態網站的方式部屬，可以不需要.net core Web Server來裝載程式。</li>
+    </ol>
+    <p class="list-title">wasm模型的缺點：</p>
+    <ol>
+        <li>初次載入速度慢，需下載大量套件(如JS程式包及.net runtime)。</li>
+        <li>瀏覽器需支援WebAssembly技術。</li>
+        <li>傳送至用戶端的程式碼無法受到竄改保護。</li>
+    </ol>
+</div>
+<h4 class="fw-bold pt-2">Blazor Server</h4>
+<div class="post-content indent-2">
+    <img src="images\posts\blazors\blazor-server-structure.png" style="width: 100%" />
+    <p class="text-center indent-0">
+        圖：Blazor Server Model架構，
+        <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-7.0">圖片來源</a>
+    </p>
+    <p>從名字來看就知道，他是Server Side的專案，Client端會與Server端建立BlazorSignalR連線進行事件處理。</p>
+    <p class="list-title">Blazor Server模型的優點：</p>
+    <ol>
+        <li>初次使用時下載資源遠小於wasm專案。</li>
+        <li>程式運行在Server上，.net工具(如偵錯)能夠正常工作。</li>
+        <li>C#程式碼基底不會提傳送給用戶端。</li>
+    </ol>
+    <p class="list-title">Blazor Server模型的缺點：</p>
+    <ol>
+        <li>每次事件、使用者互動都需要與後端溝通，使用者體驗較差。</li>
+        <li>當用戶連線失敗時所有互動功能皆無法使用。</li>
+        <li>需使用非常大量的伺服器資源。</li>
+    </ol>
+</div>
+<h4 class="fw-bold pt-2">Blazor 裝載模型的比較</h4>
+<table class="table table-bordered text-center" style="width: max-content;">
+    <tr>
+        <td></td>
+        <td>Blazor wasm</td>
+        <td>Blazor Server</td>
+    </tr>
+    <tr>
+        <td>初次載入速度</td>
+        <td></td>
+        <td>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+            </svg>
+        </td>
+    </tr>
+    <tr>
+        <td>使用者體驗</td>
+        <td>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+            </svg>
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>是否需要Server部屬</td>
+        <td>不需要</td>
+        <td>需要</td>
+    </tr>
+    <tr>
+        <td>瀏覽器支援</td>
+        <td>部分瀏覽器不支援</td>
+        <td>佳</td>
+    </tr>
+</table>
