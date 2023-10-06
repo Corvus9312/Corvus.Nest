@@ -9,3 +9,11 @@
     .post-content ul li {
         text-indent: 0em;
     }
+
+    .post-content ol li {
+        text-indent: 0em;
+    }
+
+.list-title {
+    font-size: 20px
+}
