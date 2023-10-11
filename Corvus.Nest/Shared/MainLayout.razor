@@ -1,30 +1,10 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand text-dark" href="#">Corvus+</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="#">blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="#">category</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" href="https://corvus9312.github.io/" target="_blank">about</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <NavMenu />
     <main role="main" class="container">
         <div class="row">
-            <article class="col-lg-8 pt-3">
+            <article id="content" class="col-lg-8 pt-3">
                 @Body
             </article>
             <article id="sidebar" class="col-lg-4 pt-4 ps-5">
