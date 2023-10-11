@@ -1,0 +1,63 @@
+﻿<h1 class="text-center fw-bolder">Blazor(6)-專案結構</h1>
+<h4 class="fw-bold pt-2">wasm 專案結構</h4>
+<div class="post-content indent-2 text-center">
+    <img src="images\posts\blazors\structure0.png" style="width: 50%" />
+    <p class="indent-0">圗：wasm專案結構</p>
+</div>
+<h5 class="fw-bold pt-2">Program.cs</h5>
+<div class="post-content indent-2">
+    wasm程式的啟動點。其中包含根元件(#app)啟動、相依性注入及專案全域的服務設定等基礎設定。
+</div>
+<h5 class="fw-bold pt-2">wwwroot</h5>
+<div class="post-content indent-2">
+    靜態檔案資料夾。放置網站所需的靜態檔案，如：css檔、js檔、圖片、字型等等，同時也是web的跟目錄。
+    其中index.html中裡的#app即是Program中設定的根元件，專案所有畫面渲染皆會顯示於此元件中。
+    並且引用js及css都要在index.html中導入。
+</div>
+<h5 class="fw-bold pt-2">_Imports.razor</h5>
+<div class="post-content indent-2">
+    專案全域指示詞。這邊會using一些常用元件，在這邊直接using常用元件的namespace的話就不需在每個頁面都using一次。
+</div>
+<h5 class="fw-bold pt-2">App.razor</h5>
+<div class="post-content indent-2">
+    Router元件設定的根元件。Router會攔截Request並轉譯頁面，使用Found與NotFound來處理接收到Request後的頁面處理。
+    若有比對到Request url就會依Found中的模板將元件渲染出來。
+    若比對失敗則會依NotFound的模板渲染，預設為顯示：「Sorry, there's nothing at this address.」字樣。
+</div>
+<h5 class="fw-bold pt-2">Shared folder</h5>
+<div class="post-content indent-2">
+    主要版型(Layout)資料夾。網頁Layout、Menu等共用元件及樣式都可以放在這個資料夾。
+    預設會有MainLayout.razor(主要版型)、NavMenu.razor(側導覽列)及
+</div>
+<h5 class="fw-bold pt-2">Pages</h5>
+<div class="post-content indent-2">
+    路由元件資料夾。每個頁面路由都使用@page "/[route]"來指定url路徑。
+</div>
+<h5 class="fw-bold pt-2">Properties folder</h5>
+<div class="post-content indent-2">
+    保存專案的開發環境組態：「launchSettings.json」。
+</div>
+
+<h4 class="fw-bold pt-4">清除專案範例</h4>
+<div class="post-content indent-2">
+    <p>
+        這次實作會以blog設計做為範例，因此需要清除範例程式中不需要的檔案。
+        不需要的檔案如下：
+    </p>
+    <p class="indent-0">wwwroot\sample-data(folder)</p>
+    <p class="indent-0">wwwroot\icon-192.png</p>
+    <p class="indent-0">Pages\Counter.razor</p>
+    <p class="indent-0">Pages\FetchData.razor</p>
+    <p class="indent-0">Shared\NavMenu.razor</p>
+    <p class="indent-0">Shared\SurveyPrompt.razor</p>
+    <p>清除完畢後專案結構如下：</p>
+    <p class="text-center">
+        <img src="images\posts\blazors\structure1.png" style="width: 50%" />
+    </p>
+    <p>這樣專案就只剩下基本所需的東西了，此階段的專案就可以做為空專案的範例了。</p>
+</div>
+
+<!--<div class="reference">
+    <p class="m-0">本頁面參考資料:</p>
+    <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-7.0">https://learn.microsoft.com/en-us/aspnet/core/blazor/project-structure?view=aspnetcore-7.0</a>
+</div>-->

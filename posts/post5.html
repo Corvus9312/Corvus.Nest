@@ -33,12 +33,12 @@
         部屬至Github Pages時不需要web.config，只需要發佈出來的靜態檔案(wwwroot資料夾)。
         接著登入Github進入專案Repo，並選擇「gh-pages」分支，會看到資料結構如下圖：
     </p>
-    <pre>
-        <code>
-            git branch gh-pages
-            git checkout gh-pages
-        </code>
-    </pre>
+    <div class="code-block">
+        <pre class="line-numbers" data-prismjs-copy="Copy" data-language="cmd">
+<code class="language-bash">git branch gh-pages</code>
+<code class="language-bash">git checkout gh-pages</code>
+</pre>
+    </div>
     <img src="images\posts\blazors\deploy7.png" style="width: 100%" />
     <p class="mt-3 mb-0 indent-0">
         靜態檔案上傳完畢後至Github Pages設定建置資料夾。
@@ -67,12 +67,10 @@
     <p class="mt-3 mb-0 indent-0">
         但這時又發生了另一個問題，這次換本機執行時找不到資源檔了。
         因為專案更改了BaseUri，但Debug的檔案依舊是照原本的資料夾結構在複製檔案。
-        這時更改專案目錄的Properties->launchSettings.json檔，將下圖紅框處調整為BaseUri的路徑即可。
+        這時更改專案組態檔(Properties->launchSettings.json)，將下圖紅框處調整為BaseUri的路徑即可。
     </p>
     <img src="images\posts\blazors\deploy12.png" style="width: 100%" />
     <p class="mt-3 mb-0 indent-0">
-        這樣本機執行及Github Pages都能夠正常執行了，下一章終於能夠開始寫code了！
+        這樣本機執行及Github Pages都能夠正常執行了！
     </p>
 </div>
-
-

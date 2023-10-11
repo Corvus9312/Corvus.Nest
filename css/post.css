@@ -18,7 +18,16 @@
     font-size: 20px
 }
 
-pre {
-    margin: 0px;
-    background-color: #f7f7f7;
+.code-block {
+    max-width: 760px;
+    text-indent: 0em;
+    overflow-x: auto;
 }
+
+    .code-block pre {
+        max-width: 100%;
+    }
+
+        .code-block pre code {
+            max-width: 100%;
+        }

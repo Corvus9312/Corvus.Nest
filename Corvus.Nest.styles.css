@@ -15,10 +15,6 @@ section article[b-b9lodz9ekm] {
     border-bottom: solid 1px #F2F2F2;
 }
 
-.first[b-b9lodz9ekm] {
-    border-top: revert;
-}
-
     section article a[b-b9lodz9ekm] {
         text-decoration: none;
     }
@@ -44,11 +40,6 @@ section article[b-b9lodz9ekm] {
     min-height: 100vh;
 }
 
-nav[b-93si6gg51w] {
-    font-family: "montserrat-bold", "微軟正黑體", sans-serif;
-    border-bottom: solid 1px #F2F2F2;
-}
-
 main[b-93si6gg51w] {
     display: flex;
     flex: 1;
@@ -58,7 +49,16 @@ main[b-93si6gg51w] {
         flex: 1;
     }
 
+#content[b-93si6gg51w] {
+    border-bottom: solid 1px #F2F2F2;
+}
+
 #sidebar[b-93si6gg51w] {
     flex: 1;
     border-left: solid 1px #F2F2F2;
+}
+/* /Shared/NavMenu.razor.rz.scp.css */
+nav[b-wksoyat6xq] {
+    font-family: "montserrat-bold", "微軟正黑體", sans-serif;
+    border-bottom: solid 1px #F2F2F2;
 }
