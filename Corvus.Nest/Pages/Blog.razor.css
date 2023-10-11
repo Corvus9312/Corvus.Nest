@@ -14,10 +14,6 @@ section article {
     border-bottom: solid 1px #F2F2F2;
 }
 
-.first {
-    border-top: revert;
-}
-
     section article a {
         text-decoration: none;
     }
