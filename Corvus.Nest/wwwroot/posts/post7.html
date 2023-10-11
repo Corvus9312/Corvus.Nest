@@ -1,0 +1,98 @@
+﻿<h1 class="text-center fw-bolder">Blazor(7)-Layout</h1>
+<h4 class="fw-bold pt-2">Layout</h4>
+<div class="post-content indent-2">
+    <p>
+        現行網站多數都會有一個「外框」，通常這個框會包含Logo、menu、聯絡資訊等，供這個網站的頁面一起使用。
+        若是將這些框分別放入每個頁面中，一但這個「外框」需要修改的時候，需要同時修改所有頁面，會非常耗時且容易出錯。
+        如果能夠有一個共用元件供每個頁面呼叫取用，將可以解決這個問題。
+        解決這個問題的元件就是Layout，Layout可以單獨設計外框，並且使用@Body來替換內頁內容，達到共享Layout的效果。
+    </p>
+</div>
+<h4 class="fw-bold pt-2">MainLayout</h4>
+<div class="post-content indent-2">
+    <p>
+        MainLayout就是Blazor預設的外框配置。
+        若是想要更改預設Layout，可以在App.razor中，將Found的DefaultLayout改為其他有繼承「LayoutComponentBase」的Layout元件。
+        而NotFound則是更改LayoutView的Layout。
+    </p>
+    <img src="images/posts/blazors/layout0.png" style="width: 100%" />
+    <p class="pt-3 mb-0">
+        但我們這邊不用替換，直接修改MainLayout即可。
+        這邊都是使用Bootstrap來做排版，程式碼我就不多解釋了，將MainLayout修改為以下：
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers" data-language="razor">
+<code class="language-razor">@inherits LayoutComponentBase
+&lt;div class="page">
+    &lt;nav class="navbar navbar-expand-lg">
+        &lt;div class="container">
+            &lt;a class="navbar-brand text-dark" href="#">Corvus+&lt;/a>
+            &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                &lt;span class="navbar-toggler-icon">&lt;/span>
+            &lt;/button>
+            &lt;div class="collapse navbar-collapse" id="navbarNav">
+                &lt;ul class="navbar-nav ms-auto">
+                    &lt;li class="nav-item">
+                        &lt;a class="nav-link text-dark" href="#blog">blog&lt;/a>
+                    &lt;/li>
+                    &lt;li class="nav-item">
+                        &lt;a class="nav-link text-dark" href="#category">category&lt;/a>
+                    &lt;/li>
+                    &lt;li class="nav-item">
+                        &lt;a class="nav-link text-dark" href="https://corvus9312.github.io/" target="_blank">about&lt;/a>
+                    &lt;/li>
+                &lt;/ul>
+            &lt;/div>
+        &lt;/div>
+    &lt;/nav>
+    &lt;main role="main" class="container">
+        &lt;div class="row">
+            &lt;article id="content" class="col-lg-8 pt-3">
+                @Body
+            &lt;/article>
+            &lt;article id="sidebar" class="col-lg-4 pt-4 ps-5">
+                &lt;div class="mt-2">
+                    &lt;p class="my-2 fs-5 fw-bold">Corvus+&lt;/p>
+                    &lt;p class="fs-7 text-secondary">Software Engineer building world to better.&lt;/p>
+                    &lt;div class="btn-group" role="group">
+                        &lt;div class="btn-group">
+                            &lt;a href="mailto:mailto:abc@gamil.com" class="btn btn-outline-secondary">
+                                &lt;svg style="width: 20px; height: 20px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">&lt;path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z" />&lt;/svg>
+                                &lt;span class="visually-hidden">email&lt;/span>
+                            &lt;/a>
+                            &lt;a href="https://github.com" target="_blank" class="btn btn-outline-secondary">
+                                &lt;svg style="width: 20px; height: 20px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">&lt;path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />&lt;/svg>
+                                &lt;span class="visually-hidden">instagram&lt;/span>
+                            &lt;/a>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+            &lt;/article>
+        &lt;/div>
+    &lt;/main>
+&lt;/div></code></pre>
+    </div>
+    <p class="pt-3 mb-0">而MainLayout.razor.css調整如下：</p>
+    <div class="code-block">
+        <pre>
+<code class="language-css">.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1;
+}
+nav {
+    border-bottom: solid 1px #F2F2F2;
+}
+#sidebar {
+    flex: 1;
+    border-left: solid 1px #F2F2F2;
+}</code></pre>
+    </div>
+    <p class="pt-3">
+        調整完畢執行後就能看到新的外框架構了，而@Body的部分同樣顯示原本的Index.razor的內容。
+        外框設計完畢後就能夠進行內頁的開發，因不需重複貼上Layout的程式碼，也可以減少不少的調整時間。
+    </p>
+</div>

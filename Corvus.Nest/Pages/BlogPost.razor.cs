@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace Corvus.Nest.Pages;
 
@@ -13,6 +14,9 @@ public class BlogPostBase : ComponentBase
     [Inject]
     public HttpClient HttpClient { get; set; } = null!;
 
+    [Inject]
+    public IJSRuntime JSRuntime { get; set; } = null!;
+
     protected string PostHtml { get; set; } = string.Empty;
 
     protected override async Task OnInitializedAsync()
@@ -21,5 +25,10 @@ public class BlogPostBase : ComponentBase
 
         var res = await HttpClient.GetAsync(requestUri);
         PostHtml = await res.Content.ReadAsStringAsync();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeVoidAsync("Prism.highlightAll");
     }
 }

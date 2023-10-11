@@ -33,12 +33,12 @@
         部屬至Github Pages時不需要web.config，只需要發佈出來的靜態檔案(wwwroot資料夾)。
         接著登入Github進入專案Repo，並選擇「gh-pages」分支，會看到資料結構如下圖：
     </p>
-    <pre>
-        <code>
-            git branch gh-pages
-            git checkout gh-pages
-        </code>
-    </pre>
+    <div class="code-block">
+        <pre class="line-numbers" data-prismjs-copy="Copy" data-language="cmd">
+<code class="language-bash">git branch gh-pages</code>
+<code class="language-bash">git checkout gh-pages</code>
+</pre>
+    </div>
     <img src="images\posts\blazors\deploy7.png" style="width: 100%" />
     <p class="mt-3 mb-0 indent-0">
         靜態檔案上傳完畢後至Github Pages設定建置資料夾。
@@ -74,5 +74,3 @@
         這樣本機執行及Github Pages都能夠正常執行了！
     </p>
 </div>
-
-

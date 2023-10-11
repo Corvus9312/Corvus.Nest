@@ -16,30 +16,30 @@
     "Id": 3,
     "Title": "Blazor(3)-專案建立",
     "Description": "專案建立",
-    "CreateTime": "2023-10-04T22:35:01.000Z"
+    "CreateTime": "2023-10-05T18:04:01.000Z"
   },
   {
     "Id": 4,
     "Title": "Blazor(4)-Blazor 裝載模型",
     "Description": "Blazor(4)-Blazor 裝載模型",
-    "CreateTime": "2023-10-04T22:35:01.000Z"
+    "CreateTime": "2023-10-06T20:57:01.000Z"
   },
   {
     "Id": 5,
     "Title": "Blazor(5)-Blazor wasm部屬上Github Pages",
     "Description": "Blazor(5)-Blazor wasm部屬上Github Pages",
-    "CreateTime": "2023-10-04T22:35:01.000Z"
+    "CreateTime": "2023-10-07T14:33:01.000Z"
   },
   {
     "Id": 6,
     "Title": "Blazor(6)-專案結構",
     "Description": "Blazor(6)-專案結構",
-    "CreateTime": "2023-10-04T22:35:01.000Z"
+    "CreateTime": "2023-10-08T16:06:01.000Z"
   },
   {
     "Id": 7,
-    "Title": "",
-    "Description": "",
-    "CreateTime": "2023-10-04T22:35:01.000Z"
+    "Title": "Blazor(7)-Layout",
+    "Description": "Blazor(7)-Layout",
+    "CreateTime": "2023-10-09T21:00:01.000Z"
   }
 ]
