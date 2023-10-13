@@ -2,7 +2,6 @@
   {
     "Id": 1,
     "Title": "Blazor(1)-前言",
-    "Url": "/Corvus.Nest/blog/1",
     "Description": "嗨，我是Corvus，是位軟體工程師。敝人目前接觸Blazor也有一段時間了，在這邊為這段時間的學習做一些筆記，同時也是為新人進行教育訓練的資料。此筆記會介紹Blazor的基本功。",
     "CreateTime": "2023-10-04T19:33:01.000Z"
   },
@@ -41,5 +40,23 @@
     "Title": "Blazor(7)-Layout",
     "Description": "Blazor(7)-Layout",
     "CreateTime": "2023-10-09T21:00:01.000Z"
+  },
+  {
+    "Id": 8,
+    "Title": "Blazor(8)-Component",
+    "Description": "Component",
+    "CreateTime": "2023-10-12T23:54:01.000Z"
+  },
+  {
+    "Id": 9,
+    "Title": "Blazor(9)-Routing",
+    "Description": "Routing",
+    "CreateTime": "2023-10-13T20:00:01.000Z"
+  },
+  {
+    "Id": 10,
+    "Title": "Blazor(10)-Life Cycle",
+    "Description": "Life Cycle",
+    "CreateTime": "2023-10-13T20:00:01.000Z"
   }
 ]
