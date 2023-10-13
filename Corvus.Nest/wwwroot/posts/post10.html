@@ -1,0 +1,45 @@
+﻿<h1 class="text-center fw-bolder">Blazor(10)-Life Cycle</h1>
+<div class="post-content indent-2 pt-2">
+    <p class="my-1">
+        Component的週期中，有幾個動作是我們可以控制的，依照執行順序為下：
+    </p>
+    <ol style="padding-left: 4em;">
+        <li>設定參數時：SetParameterts</li>
+        <li>元件初始化：Onlnitialized</li>
+        <li>設定參數後：OnParametersSet</li>
+        <li>畫面渲染後：OnParametersSet</li>
+    </ol>
+    <p></p>
+    <div class="text-center">
+        <img src="images/posts/blazors/LifeCycle0.png" alt="Life Cycle Flow" style="width: 50%;" />
+        <p>圗：元件生命週期圗<a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/lifecycle?view=aspnetcore-7.0">ref</a></p>
+    </div>
+</div>
+<h4 class="fw-bold pt-2">設定參數時(SetParameters{Async})</h4>
+<div class="post-content indent-2">
+    <p>
+        這個階段會設定從父元件或路由中傳遞過來的參數，開發人員可以直接覆寫這個階段的程式，來與傳入的參數互動。
+        一般會在這個階段進行參數驗證或參數初始化設定。
+    </p>
+</div>
+<h4 class="fw-bold pt-2">元件初始化(OnInitialized{Async})</h4>
+<div class="post-content indent-2">
+    <p>
+        元件載入完畢，並收到初始化參數之後會開始執行OnInitialized方法。
+        一般會在這個階段向後端請求呈現資料。
+    </p>
+</div>
+<h4 class="fw-bold pt-2">設定參數後(OnParametersSet{Async})</h4>
+<div class="post-content indent-2">
+    <p>
+        前面兩個階段在整個生命週期裡面都只會執行一次。
+        而這個階段除了在OnInitialized階段後會執行一次以外，每一次的Parameter更動，都會在執行一次。
+    </p>
+</div>
+<h4 class="fw-bold pt-2">畫面渲染後(OnAfterRender{Async})</h4>
+<div class="post-content indent-2">
+    <p>
+        這個階段會在元件完全渲染完畢後執行，有很多需要在DOM都建置完成後才有辦法執行的js，都需要在這個階段執行。
+        而這個階段還可以使用firstRender參數「OnAfterRender(bool firstRender)」來判斷這個元件是否為首次渲染。
+    </p>
+</div>
