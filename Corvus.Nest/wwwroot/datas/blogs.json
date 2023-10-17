@@ -64,5 +64,17 @@
     "Title": "Blazor(11)-Code Behind",
     "Description": "Code Behind",
     "CreateTime": "2023-10-16T17:52:01.000Z"
+  },
+  {
+    "Id": 12,
+    "Title": "Blazor(12)-Component Parameters",
+    "Description": "Component Parameters",
+    "CreateTime": "2023-10-17T18:43:01.000Z"
+  },
+  {
+    "Id": 13,
+    "Title": "Blazor(13)-Binding",
+    "Description": "Binding",
+    "CreateTime": "2023-10-17T18:43:01.000Z"
   }
 ]

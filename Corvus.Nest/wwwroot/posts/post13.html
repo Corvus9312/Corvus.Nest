@@ -1,0 +1,138 @@
+﻿<h1 class="text-center fw-bolder">Blazor(13)-Binding</h1>
+<div class="post-content indent-2 pt-2">
+    <p>
+        Razor元件可以使用@符號及@bind來為DOM元素提供資料及事件細節功能。
+        @符號能夠將Code區塊內的屬性綁定到Html中，
+        @bind可以將輸入元件的值綁定到Code區塊中的屬性，
+        最後，「@bind:event="事件"」可以繫結輸入元件的事件。
+        這邊會實作一個留言板功能來介紹Blazor的幾個繫結方法。
+    </p>
+</div>
+<h4 class="fw-bold pt-2">資料繫結</h4>
+<div class="post-content indent-2 pt-2">
+    <h5 class="fw-bold indent-0 pt-2">單向繫結</h5>
+    <p>
+        將Code區塊中的屬性的值，透過@符號將值綁定至Html中。
+        這邊建立一個Comment.razor做為留言板的元件，新增Comments屬性做為留言內容，
+        並將Comments值綁定至留言板(comment-content)。程式碼如下：
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">@page "/comment"
+
+&lt;div class="comments">
+    &lt;div class="comment-content">
+        @Comments
+    &lt;/div>
+    &lt;div class="post-comment">
+    &lt;/div>
+&lt;/div>
+
+@code {
+    public string Comments { get; set; } = "Content";
+}
+</code>
+</pre>
+        <p class="text-center">Comment.razor</p>
+    </div>
+    <p>
+        新增完畢後，連結至「<a href="https://localhost:[port]/BlazorDemo/comment">https://localhost:[port]/BlazorDemo/comment</a>」之後就會看到Code區塊Comments的值被綁定到留言板中了。
+    </p>
+    <h5 class="fw-bold indent-0 pt-2">雙向繫結</h5>
+    <p>
+        但留言板是給User留言用的，因此我們要新增一個輸入框來讓User輸入留言，之後在顯示在留言板上。程式碼如下：
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">@page "/comment"
+
+&lt;div class="comments">
+    &lt;div class="comment-content">
+        @Comments
+    &lt;/div>
+    &lt;div class="post-comment">
+        &lt;input type="text" @bind=Comments />
+    &lt;/div>
+&lt;/div>
+
+@code {
+    public string Comments { get; set; } = string.Empty;
+}</code>
+</pre>
+        <p class="text-center">Comment.razor</p>
+    </div>
+    <p>
+        這樣就將textbox的值，繫結到Html中了。在User輸入完畢後(指標離開textbox)，就會將值顯示在留言版中了。
+    </p>
+</div>
+<h4 class="fw-bold pt-2">事件繫結</h4>
+<div class="post-content indent-2 pt-2">
+    <p>
+        確定資料繫結都沒問題後，我們來進一步完善留言板的功能吧。
+        接下來我們要做一個預覽框，讓使用者在輸入的「同時」，將輸入資料繫結到預覽框中。
+        並新增一個按鈕將使用者留言送出到留言板，同時清空輸入框。
+    </p>
+    <p class="indent-0 my-2">
+        1.新增預覽框及預覽屬性值，並使用「@bind:event="oninput"」來控制輸入時同時繫結資料。
+        這邊可以看到在輸入的同時，預覽框就會同步顯示輸入框所輸入的內容。
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">@page "/comment"
+
+&lt;div class="comments">
+    &lt;div class="comment-content">
+        @Comments
+    &lt;/div>
+    &lt;div class="post-comment">
+        &lt;input type="text" @bind=Preview @bind:event="oninput" />
+    &lt;/div>
+    &lt;div class="Preview">
+        @Preview
+    &lt;/div>
+&lt;/div>
+
+@code {
+    public string Comments { get; set; } = string.Empty;
+
+    public string Preview { get; set; } = string.Empty;
+}</code>
+</pre>
+        <p class="text-center">Comment.razor</p>
+    </div>
+    <p class="indent-0">
+        2.新增按鈕，使用「@onclick=[方法名]」來觸發按鈕點擊事件。將預覽值套用至留言板，並清空預覽值。
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">@page "/comment"
+
+&lt;div class="comments">
+    &lt;div class="comment-content">
+        @Comments
+    &lt;/div>
+    &lt;div class="post-comment">
+        &lt;input type="text" @bind=Preview @bind:event="oninput" />
+        &lt;input type="button" @onclick=ButtonOnClick value="送出" />
+    &lt;/div>
+    &lt;div class="Preview">
+        @Preview
+    &lt;/div>
+&lt;/div>
+
+@code {
+    public string Comments { get; set; } = string.Empty;
+
+    public string Preview { get; set; } = string.Empty;
+
+    protected void ButtonOnClick()
+    {
+        Comments = Preview;
+
+        Preview = string.Empty;
+    }
+}</code>
+</pre>
+        <p class="text-center">Comment.razor</p>
+    </div>
+</div>

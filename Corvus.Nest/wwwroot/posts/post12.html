@@ -1,0 +1,141 @@
+﻿<h1 class="text-center fw-bolder">Blazor(12)-Component Parameters</h1>
+<div class="post-content indent-2 pt-2">
+    <p>
+        前面介紹元件(Component)時有說到，Blazor的畫面是由數個元件所組成的，而這些元件是能夠重複給多個頁面使用的。
+        而為了讓這些元件能夠更容易的被運用，在使用這些元件時，讓元件間能夠互相傳遞參數。
+        這邊會在文章底部新增「上一篇」及「下一篇」按鈕來做為示範。
+    </p>
+</div>
+<h4 class="fw-bold pt-2">Parameter</h4>
+<div class="post-content indent-2 pt-2">
+    <p class="indent-0">
+        元件參數的使用方式：
+        <ol>
+            <li>子元件新增一個屬性</li>
+            <li>在該元件上設定[Parameter]</li>
+            <li>傳遞物件不限於簡單型別，可傳遞DTO、event作為參數</li>
+        </ol>
+    </p>
+    <p>實作：</p>
+    <div class="indent-0">
+        <p class="my-2">1.新增子元件-BlogPostFotter.razor</p>
+        <p class="my-2">2.子元件設計頁面並新增傳遞參數</p>
+        <div class="code-block">
+            <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">&lt;div style="width: 100%">
+
+    &lt;div class="d-flex justify-content-start">
+        @if (Previous is not null)
+        {
+            &lt;a href="@Previous.Url">上一篇：@Previous.Title&lt;/a>
+        }
+    &lt;/div>
+    &lt;div class="d-flex justify-content-end">
+        @if (Next is not null)
+        {
+            &lt;a href="@Next.Url">下一篇：@Next.Title&lt;/a>
+        }
+    &lt;/div>
+
+&lt;/div>
+
+@code {
+    [Parameter]
+    public FooterModel? Previous { get; set; }
+
+    [Parameter]
+    public FooterModel? Next { get; set; }
+
+    public class FooterModel
+    {
+        public string Title { get; set; } = null!;
+
+        public string Url { get; set; } = null!;
+    }
+}</code>
+</pre>
+            <p class="text-center">BlogPostFooter.razor</p>
+        </div>
+        <p class="my-2">3.父元件呼叫子元件，並直接在元件屬性上傳遞參數</p>
+        <div class="code-block">
+            <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">@page "/blog/{Id:int}"
+@inherits BlogPostBase
+
+&lt;div class="ms-auto pb-5">
+    @Content
+&lt;/div>
+
+&lt;BlogPostFooter Previous="Previous" Next="Next">&lt;/BlogPostFooter></code>
+</pre>
+            <p class="text-center">BlogPost.razor</p>
+        </div>
+        <div class="code-block">
+            <pre class="line-numbers m-0" data-language="C#">
+<code class="language-csharp">[Parameter]
+public int Id { get; set; }
+
+public FooterModel? Previous { get; set; }
+
+public FooterModel? Next { get; set; }
+
+public string Content { get; set; } = null!;
+
+protected override void OnInitialized()
+{
+    if (Id.Equals(1))
+    {
+        Previous = null;
+        Next = new FooterModel { Title = "簡介", Url = "blog/2" };
+    }
+    else if (Id.Equals(2))
+    {
+        Previous = new FooterModel { Title = "前言", Url = "blog/1" };
+        Next = null;
+    }
+
+    Content = Id switch
+    {
+        1 => "前言",
+        2 => "簡介",
+        _ => string.Empty
+    };
+}</code>
+</pre>
+            <p class="text-center">BlogPost.razor.cs</p>
+        </div>
+        <p class="my-2">4.調整完畢後會看到文章內容底下就出現footer bar了。</p>
+        <p class="indent-2">
+            但這時後點選上一篇/下一篇卻沒有反應，因為我們原本把替換邏輯寫在OnInitialized(初始化後)裡，
+            但是網址轉換時並不會reload本頁面，而是利用Url重新傳遞路由參數給Id。
+            因此要將邏輯寫到OnParametersSet(設定參數後)，讓Id每次取得值之後便重新取得文章內容。
+        </p>
+        <div class="code-block">
+            <pre class="line-numbers m-0" data-language="C#">
+<code class="language-csharp">protected override void OnParametersSet()
+{
+    if (Id.Equals(1))
+    {
+        Previous = null;
+        Next = new FooterModel { Title = "簡介", Url = "blog/2" };
+    }
+    else if (Id.Equals(2))
+    {
+        Previous = new FooterModel { Title = "前言", Url = "blog/1" };
+        Next = null;
+    }
+
+    Content = Id switch
+    {
+        1 => "前言",
+        2 => "簡介",
+        _ => string.Empty
+    };
+
+    base.OnParametersSet();
+}</code>
+</pre>
+            <p class="text-center">BlogPost.razor.cs</p>
+        </div>
+    </div>
+</div>
