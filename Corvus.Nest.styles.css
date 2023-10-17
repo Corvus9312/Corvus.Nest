@@ -32,6 +32,30 @@ section article[b-b9lodz9ekm] {
     font-size: 14px;
     padding: 1rem 0 0 0;
 }
+/* /Pages/BlogPostFooter.razor.rz.scp.css */
+.post-footer[b-16cohs5xfo] {
+    width: 100%;
+    border-top: solid 1px #F2F2F2
+}
+
+.center-line[b-16cohs5xfo] {
+    position: relative;
+    left: 50%;
+    width: 1px;
+    height: calc(100% - 10px);
+    background-color: #f2f2f2
+}
+
+p[b-16cohs5xfo] {
+    color: black;
+    margin: 0px;
+    text-decoration: none;
+}
+
+svg[b-16cohs5xfo] {
+    width: 28px;
+    vertical-align: revert;
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-93si6gg51w] {
     position: relative;
