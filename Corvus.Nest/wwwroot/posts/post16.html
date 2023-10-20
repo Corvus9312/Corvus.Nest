@@ -1,0 +1,175 @@
+﻿<h1 class="text-center fw-bolder">Blazor(16)-輸入元件(2)</h1>
+<h4 class="fw-bold pt-2">Calendar</h4>
+<div class="post-content indent-2">
+    <p>
+        日歷元件。type指定為date時，僅能輸入「年/月/日」。type宣告為datetime-local時，則可輸入「年/月/日 時:分」。
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">&lt;p class="m-0">留言時間&lt;/p>
+&lt;input type="datetime-local" @bind=Preview.CreateTime />
+            
+@code
+{
+    public CommentModel Preview { get; set; } = new();
+
+    public class CommentModel
+    {
+        ...
+        public DateTime CreateTime { get; set; } = DateTime.Now;
+    }
+}</code>
+</pre>
+    </div>
+</div>
+<h4 class="fw-bold pt-2">CheckBox</h4>
+<div class="post-content indent-2">
+    <p>
+        核取方塊，用&lt;input>元件，指定type="checkbox"。以bool來控制輸入選取，需要用label將input及文字元素包起來。
+        若沒使用label，只能選取方塊進行選取，而且如果使用自動翻譯等會調整版面的功能，有機會會跑版。
+        使用label包起來的話，直接點文字即可選取，並且能夠固定元件排版。
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">&lt;label>
+    &lt;input type="checkbox" @bind=Preview.Notify />
+    &lt;span>回覆通知&lt;/span>
+&lt;/label>
+            
+@code
+{
+    public CommentModel Preview { get; set; } = new();
+
+    public class CommentModel
+    {
+        ...
+        public bool Notify { get; set; } = false;
+    }
+}</code>
+</pre>
+    </div>
+</div>
+<h4 class="fw-bold pt-2">InputFile</h4>
+<div class="post-content indent-2">
+    <p>
+        檔案上傳元件。&lt;InputFile>元件。轉譯成Html會變成&lt;input type="file">。
+        用OnChange來控制檔案變更，方法須傳入InputFileChangeEventArgs，其中包含欲上傳的檔案。
+        同時也能用accept來控制可上傳的附檔名，多種附檔名以「,」分隔。
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">&lt;p class="m-0">上傳附件&lt;/p>
+&lt;InputFile OnChange="FileChangeHandler" accept=".txt,.cs">&lt;/InputFile>
+
+@code
+{
+    public CommentModel Preview { get; set; } = new();
+    ...
+    protected async Task FileChangeHandler(InputFileChangeEventArgs e)
+    {
+        IBrowserFile file = e.File;
+
+        byte[] bytes = new byte[file.Size];
+        await file.OpenReadStream(maxAllowedSize: file.Size + 1).ReadAsync(bytes);
+
+        Preview.Bytes = bytes;
+    }
+
+    public class CommentModel
+    {
+        ...
+        public string Subject { get; set; } = null!;
+    }
+}</code>
+</pre>
+    </div>
+</div>
+<h4 class="fw-bold pt-2">DropdownList</h4>
+<div class="post-content indent-2">
+    <p>
+        下拉式選單，html的&lt;select>元件。
+        在Html裡叫select，習慣asp.net的朋友會習慣叫dropdownlist。
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">&lt;select @bind="Preview.Subject">
+    &lt;option value="文章錯誤">文章錯誤&lt;/option>
+    &lt;option value="程式交流">程式交流&lt;/option>
+&lt;/select>
+            
+@code
+{
+    public CommentModel Preview { get; set; } = new();
+
+    public class CommentModel
+    {
+        ...
+        public string Subject { get; set; } = "文章錯誤";
+    }
+}</code>
+</pre>
+    </div>
+</div>
+<h4 class="fw-bold pt-2">RadioButton</h4>
+<div class="post-content indent-2">
+    <p>
+        單選鈕，用&lt;input>元件，指定type="radio"。
+        與CheckBox相同，用label將按鈕及文字元素包起來後，即可點選文字選取。
+        若是要將多個單選鈕群組起來，只要將name屬性設定為相同名稱即可。
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">&lt;label>
+    &lt;label>&lt;input type="radio" name="anonymous" @onchange="@(() => SetAnonymous(true))" checked="@Preview.Anonymous.Equals(true)" />匿名&lt;/label>
+    &lt;label>&lt;input type="radio" name="anonymous" @onchange="@(() => SetAnonymous(false))" checked="@Preview.Anonymous.Equals(false)" />顯示姓名&lt;/label>
+&lt;/label>
+
+@code
+{
+    public CommentModel Preview { get; set; } = new();
+    ...
+    protected void SetAnonymous(bool anonymous) => Preview.Anonymous = anonymous;
+    ...
+    public class CommentModel
+    {
+        ...
+        public bool Anonymous { get; set; } = false;
+    }
+}</code>
+</pre>
+    </div>
+</div>
+
+<h4 class="fw-bold pt-2">調整留言板</h4>
+<div class="post-content indent-2">
+    <p>
+        最後把留言輸入資料放回留言板，這樣留言版基本功能就都完成了。
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">@foreach (var comment in Comments)
+{
+    &lt;div class="comment-content" style="background-color: #f2f2f2">
+        &lt;p class="m-0">主旨：@comment.Subject&lt;/p>
+        &lt;p class ="m-1" style="font-size: 0.7em">@comment.CreateTime&lt;/p>
+        @if (comment.Anonymous)
+        {
+            &lt;p class="m-1">Anonymous&lt;/p>
+        }
+        else
+        {
+            &lt;p class="m-1">@comment.Name&lt;/p>
+        }
+        &lt;p class="m-1">@comment.Content&lt;/p>
+    &lt;/div>
+}</code>
+</pre>
+        <p class="text-center">Comment.razor</p>
+    </div>
+
+</div>
+
+<p>最後執行結果如下：</p>
+<a href="images/posts/blazors/input-result.png" target="_blank">
+    <img src="images/posts/blazors/input-result.png" style="width: 100%" />
+</a>

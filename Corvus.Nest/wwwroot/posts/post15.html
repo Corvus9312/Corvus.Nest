@@ -78,11 +78,14 @@
 <code class="language-razor">&lt;p class="m-0">姓名&lt;/p>
 &lt;input type="text" @bind=Preview.Name />
 
-public CommentModel Preview { get; set; } = new();
-
-public class CommentModel
+@code
 {
-    public string Name { get; set; } = null!;
+    public CommentModel Preview { get; set; } = new();
+
+    public class CommentModel
+    {
+        public string Name { get; set; } = null!;
+    }
 }</code>
 </pre>
     </div>
@@ -98,15 +101,17 @@ public class CommentModel
 <code class="language-razor">&lt;p class="m-0">留言內容&lt;/p>
 &lt;textarea @bind="Preview.Content" type="text" class="form-control" />
 
-public CommentModel Preview { get; set; } = new();
-
-public class CommentModel
+@code
 {
-    public string Name { get; set; } = null!;
+    public CommentModel Preview { get; set; } = new();
 
-    public string Content { get; set; } = null!;
-}
-</code>
+    public class CommentModel
+    {
+        public string Name { get; set; } = null!;
+
+        public string Content { get; set; } = null!;
+    }
+}</code>
 </pre>
     </div>
 </div>
