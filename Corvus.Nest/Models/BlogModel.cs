@@ -10,7 +10,7 @@ public class BlogModel
     {
         get
         {
-            return $"/Corvus.Nest/blog/{Id}";
+            return $"/blog/{Id}";
         }
     }
 
