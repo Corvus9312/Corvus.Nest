@@ -1,0 +1,63 @@
+﻿<h1 class="text-center fw-bolder">C#+Line Bot建立一個Line聊天機器人</h1>
+<h4 class="fw-bold pt-2">建立Line bot帳號，並取得Channel Access Token及User ID</h4>
+<div class="post-content indent-2">
+    <p class="m-0 indent-0">1.進入Line Developer網站。</p>
+    <p>
+        <a href="https://developers.line.biz/zh-hant/">https://developers.line.biz/zh-hant/</a>
+    </p>
+    <p class="m-0 indent-0">2.點選Console，登入自己的Line帳密，進入主控台。</p>
+    <div class="text-center mb-3">
+        <a href="images/posts/linebots/linebot0.png" target="_blank">
+            <img src="images/posts/linebots/linebot0.png" style="width: 100%" />
+        </a>
+    </div>
+    <p class="m-0 indent-0">3.建立Provider。</p>
+    <p class="m-0">
+        若是第一次登入，需要填寫個人資訊。之後，系統會讓你建立一個新的Provider。
+        這邊可以Key公司名稱，或是自己的名字、或代號都可以，並無限制。
+    </p>
+    <div class="text-center mb-3">
+        <a href="images/posts/linebots/linebot0.png" target="_blank">
+            <img src="images/posts/linebots/linebot1.png" style="width: 75%" />
+        </a>
+    </div>
+    <p class="m-0 indent-0">4.建立Messaging API頻道。</p>
+    <p class="m-0">
+        Provider建立完畢後，點擊「Create a Messaging API Channel」建立頻道。接著填寫名稱、說明、分類、子分類及個人EMail，並勾選全部同意條款後，點擊「Create」新增頻道。
+    </p>
+    <div class="text-center mb-3">
+        <a href="images/posts/linebots/linebot0.png" target="_blank">
+            <img src="images/posts/linebots/linebot2.png" style="width: 100%" />
+        </a>
+    </div>
+    <p class="m-0 indent-0">5.加入Line bot好友。</p>
+    <p class="m-0">
+        進入「Messaging API」，Bot information有Bot basic ID及QR code，這個就是這次建立Line bot的ID。
+        複製Bot basic ID去加入好友搜尋用戶ID，或直接掃描QR code來加入機器人好友就可以了。
+    </p>
+    <div class="text-center mb-3">
+        <a href="images/posts/linebots/linebot3.png" target="_blank">
+            <img src="images/posts/linebots/linebot3.png" style="width: 100%" />
+        </a>
+    </div>
+    <p class="m-0 indent-0">6.取得Token。</p>
+    <p class="m-0">
+        首先Channel access token是控制Line bot的鑰匙，所以必須要保存好不能外流。
+        位置在「Channel settings」最底下的「Channel access token (long-lived)」，點擊「Issue」取得來取得Channel access token。
+    </p>
+    <div class="text-center mb-3">
+        <a href="images/posts/linebots/linebot4.png" target="_blank">
+            <img src="images/posts/linebots/linebot4.png" style="width: 50%" />
+        </a>
+    </div>
+    <p class="m-0 indent-0">6.取得User ID。</p>
+    <p class="m-0">
+        接著是User ID，是你自己的ID。透過Line bot傳送訊息給自己時，就需要使用這個ID來發送訊息。
+        位置在「Basic settings」最底下的「Your user ID」，直接複製這串U開頭的英數字串就可以了。
+    </p>
+    <div class="text-center mb-3">
+        <a href="images/posts/linebots/linebot5.png" target="_blank">
+            <img src="images/posts/linebots/linebot5.png" style="width: 75%" />
+        </a>
+    </div>
+</div>

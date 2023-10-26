@@ -1,0 +1,21 @@
+﻿@page "/category"
+@inherits CategoryBase
+
+<div class="category-content">
+    <section class="category-list">
+        @if (Categories is not null && Categories.Any())
+        {
+            @foreach (var category in Categories)
+            {
+                <article>
+                    <a href="blog/@category.Category" class="text-dark">
+                        <h2 class="fw-bold">@category.Category</h2>
+                        <p class="text-secondary d-flex align-items-center">
+                            共@(category.PostCount)篇文章
+                        </p>
+                    </a>
+                </article>
+            }
+        }
+    </section>
+</div>

@@ -5,19 +5,11 @@ using System.Text.Json;
 
 namespace Corvus.Nest.Pages;
 
-public class BlogPostBase : ComponentBase
+public class BlogPostBase : BaseComponent
 {
-    [Parameter]
-    public int PostID { get; set; }
+    [Parameter] public int PostID { get; set; }
 
-    [Inject]
-    public NavigationManager Navigator { get; set; } = null!;
-
-    [Inject]
-    public HttpClient HttpClient { get; set; } = null!;
-
-    [Inject]
-    public IJSRuntime JSRuntime { get; set; } = null!;
+    [Parameter] public string? Category { get; set; } = null;
 
     public BlogModel? PreviousPost { get; set; }
 
@@ -32,7 +24,17 @@ public class BlogPostBase : ComponentBase
         var res = await HttpClient.GetAsync(requestUri);
         var json = await res.Content.ReadAsStringAsync();
 
-        return JsonSerializer.Deserialize<List<BlogModel>>(json) ?? new();
+        var blogs = JsonSerializer.Deserialize<List<BlogModel>>(json) ?? new();
+
+        blogs = Category is null ? blogs : blogs.Where(x => x.Category?.Equals(Category) ?? false).ToList(); ;
+
+        blogs.ForEach(
+            x =>
+            {
+                x.Url = Category is null ? $"/blog/{x.Id}" : $"/blog/{Category}/{x.Id}";
+            });
+
+        return blogs;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)

@@ -18,10 +18,6 @@ section article {
         text-decoration: none;
     }
 
-        section article a p svg {
-            width: 14px;
-        }
-
         section article a p {
             font-size: 10px;
             margin: 0;

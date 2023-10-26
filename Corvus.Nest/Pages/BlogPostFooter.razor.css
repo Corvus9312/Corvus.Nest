@@ -17,7 +17,10 @@ p {
     text-decoration: none;
 }
 
-svg {
-    width: 28px;
-    vertical-align: revert;
+i {
+    font-size: 28px;
 }
+
+    i::before {
+        vertical-align: revert;
+    }

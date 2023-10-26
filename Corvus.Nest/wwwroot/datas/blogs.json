@@ -3,96 +3,119 @@
     "Id": 1,
     "Title": "Blazor(1)-前言",
     "Description": "嗨，我是Corvus，是位軟體工程師。敝人目前接觸Blazor也有一段時間了，在這邊為這段時間的學習做一些筆記，同時也是為新人進行教育訓練的資料。此筆記會介紹Blazor的基本功。",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-04T19:33:01.000Z"
   },
   {
     "Id": 2,
     "Title": "Blazor(2)-簡介",
     "Description": "前面有說到，眾多的前端框架對於一個經驗不多的web開發者來說，是有非常多課題需要克服的。不論是巨大的時間成本或是太過多樣複雜的技術要學習，可以說要逐一嘗試每一種框架技術是近乎不可能的。",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-04T22:35:01.000Z"
   },
   {
     "Id": 3,
     "Title": "Blazor(3)-專案建立",
     "Description": "專案建立",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-05T18:04:01.000Z"
   },
   {
     "Id": 4,
     "Title": "Blazor(4)-Blazor 裝載模型",
     "Description": "Blazor(4)-Blazor 裝載模型",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-06T20:57:01.000Z"
   },
   {
     "Id": 5,
     "Title": "Blazor(5)-Blazor wasm部屬上Github Pages",
     "Description": "Blazor(5)-Blazor wasm部屬上Github Pages",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-07T14:33:01.000Z"
   },
   {
     "Id": 6,
     "Title": "Blazor(6)-專案結構",
     "Description": "Blazor(6)-專案結構",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-08T16:06:01.000Z"
   },
   {
     "Id": 7,
     "Title": "Blazor(7)-Layout",
     "Description": "Blazor(7)-Layout",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-09T21:00:01.000Z"
   },
   {
     "Id": 8,
     "Title": "Blazor(8)-Component",
     "Description": "Component",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-12T23:54:01.000Z"
   },
   {
     "Id": 9,
     "Title": "Blazor(9)-Routing",
     "Description": "Routing",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-13T20:00:01.000Z"
   },
   {
     "Id": 10,
     "Title": "Blazor(10)-Life Cycle",
     "Description": "Life Cycle",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-13T20:00:01.000Z"
   },
   {
     "Id": 11,
     "Title": "Blazor(11)-Code Behind",
     "Description": "Code Behind",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-16T17:52:01.000Z"
   },
   {
     "Id": 12,
     "Title": "Blazor(12)-Component Parameters",
     "Description": "Component Parameters",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-17T18:43:01.000Z"
   },
   {
     "Id": 13,
     "Title": "Blazor(13)-Binding",
     "Description": "Binding",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-17T18:43:01.000Z"
   },
   {
     "Id": 14,
     "Title": "Blazor(14)-元件間的事件傳遞",
     "Description": "元件間的事件傳遞",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-19T20:03:01.000Z"
   },
   {
     "Id": 15,
     "Title": "Blazor(15)-輸入元件(1)",
     "Description": "輸入元件1",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-19T21:11:01.000Z"
   },
   {
     "Id": 16,
     "Title": "Blazor(16)-輸入元件(2)",
     "Description": "輸入元件2",
+    "Category": "Blazor系列",
     "CreateTime": "2023-10-20T22:36:01.000Z"
+  },
+  {
+    "Id": 17,
+    "Title": "C#+Line Bot建立一個Line聊天機器人",
+    "Description": "C# + Line Bot 建立一個Line聊天機器人",
+    "Category": "Line Bot",
+    "CreateTime": "2023-10-25T22:36:01.000Z"
   }
 ]

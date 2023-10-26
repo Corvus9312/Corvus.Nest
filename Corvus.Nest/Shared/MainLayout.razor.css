@@ -22,3 +22,7 @@ main {
     flex: 1;
     border-left: solid 1px #F2F2F2;
 }
+
+a i {
+    font-size: 20px;
+}
