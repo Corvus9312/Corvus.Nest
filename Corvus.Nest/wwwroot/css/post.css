@@ -25,6 +25,7 @@
 }
 
     .code-block pre {
+        font-size: 12px;
         max-width: 100%;
     }
 

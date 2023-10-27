@@ -2,7 +2,9 @@
 
 public class CategoryModel
 {
-    public string Category { get; set; } = null!;
+    public string Id { get; set; } = null!;
 
-    public int PostCount { get; set; }
+    public string Title { get; set; } = null!;
+
+    public int PostCount { get; set; } = 0;
 }

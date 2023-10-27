@@ -31,7 +31,7 @@ public class BlogPostBase : BaseComponent
         blogs.ForEach(
             x =>
             {
-                x.Url = Category is null ? $"/blog/{x.Id}" : $"/blog/{Category}/{x.Id}";
+                x.Url = Category is null ? $"/blog/{x.Id}" : $"/blog/{Uri.EscapeDataString(Category)}/{x.Id}";
             });
 
         return blogs;

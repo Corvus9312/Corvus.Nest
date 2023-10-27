@@ -1,4 +1,5 @@
 ﻿@page "/category"
+@using System.Web;
 @inherits CategoryBase
 
 <div class="category-content">
@@ -8,8 +9,8 @@
             @foreach (var category in Categories)
             {
                 <article>
-                    <a href="blog/@category.Category" class="text-dark">
-                        <h2 class="fw-bold">@category.Category</h2>
+                    <a href="blog/@Uri.EscapeDataString(category.Id)" class="text-dark">
+                        <h2 class="fw-bold">@category.Title</h2>
                         <p class="text-secondary d-flex align-items-center">
                             共@(category.PostCount)篇文章
                         </p>

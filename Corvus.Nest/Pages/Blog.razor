@@ -6,6 +6,10 @@
 <PageTitle>Corvus+ Blog</PageTitle>
 
 <div class="blog-content">
+    @if (CategoryTitle is not null)
+    {
+        <h1>@CategoryTitle</h1>
+    }
     <section class="blog-post">
         @if (Blogs is not null && Blogs.Any())
         {
