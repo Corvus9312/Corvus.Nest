@@ -1,0 +1,43 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <NavMenu />
+    <main role="main" class="container">
+        <div class="row">
+            <article id="content" class="col-lg-8 pt-3">
+                @Body
+            </article>
+            <article id="sidebar" class="col-lg-4 pt-4 ps-5">
+                <div class="mt-2">
+                    <img src="images\headshot.jpg" class="rounded-circle" width="100" />
+                    <p class="my-2 fs-5 fw-bold">Corvus+</p>
+                    <p class="fs-7 text-secondary">Software Engineer building world to better.</p>
+                    <div class="btn-group" role="group">
+                        <a href="mailto:k12234557@cycu.org.tw" class="btn btn-outline-dark">
+                            <i class="bi bi-envelope"></i>
+                            <span class="visually-hidden">email</span>
+                        </a>
+                        <a href="https://github.com/Corvus9312" target="_blank" class="btn btn-outline-dark">
+                            <i class="bi bi-github"></i>
+                            <span class="visually-hidden">Github</span>
+                        </a>
+                        <a href="https://www.instagram.com/how._.1222/" target="_blank" class="btn btn-outline-dark">
+                            <i class="bi bi-instagram"></i>
+                            <span class="visually-hidden">instagram</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/Corvus9312/" target="_blank" class="btn btn-outline-dark">
+                            <i class="bi bi-linkedin"></i>
+                            <span class="visually-hidden">linkedin</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+</div>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>

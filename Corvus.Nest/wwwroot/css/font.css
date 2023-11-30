@@ -1,34 +1,67 @@
-@font-face {
-    font-family: "montserrat-extrabold";
-    src: url("../fonts/montserrat/montserrat-extrabold-webfont.woff2") format("woff2"), url("../fonts/montserrat/montserrat-extrabold-webfont.woff") format("woff");
+﻿@font-face {
+    font-family: "GenSenRounded-B";
+    src: url("../fonts/GenSenRounded/GenSenRounded-B.ttc") format(collection), 
+        url("../fonts/GenSenRounded/GenSenRounded-B-TW.ttf") format('truetype'),
+        url("../fonts/GenSenRounded/GenSenRounded-B-JP.ttf") format('truetype');
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
-    font-family: "montserrat-bold";
-    src: url("../fonts/montserrat/montserrat-bold-webfont.woff2") format("woff2"), url("../fonts/montserrat/montserrat-bold-webfont.woff") format("woff");
+    font-family: "GenSenRounded-EL";
+    src: url("../fonts/GenSenRounded/GenSenRounded-EL.ttc") format(collection), 
+        url("../fonts/GenSenRounded/GenSenRounded-EL-TW.ttf") format('truetype'), 
+        url("../fonts/GenSenRounded/GenSenRounded-EL-JP.ttf") format('truetype');
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
-    font-family: "montserrat-semibold";
-    src: url("../fonts/montserrat/montserrat-semibold-webfont.woff2") format("woff2"), url("../fonts/montserrat/montserrat-semibold-webfont.woff") format("woff");
+    font-family: "GenSenRounded-H";
+    src: url("../fonts/GenSenRounded/GenSenRounded-B.ttc") format(collection), 
+        url("../fonts/GenSenRounded/GenSenRounded-H-TW.ttf") format('truetype'), 
+        url("../fonts/GenSenRounded/GenSenRounded-H-JP.ttf") format('truetype');
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
-    font-family: "montserrat-medium";
-    src: url("../fonts/montserrat/montserrat-medium-webfont.woff2") format("woff2"), url("../fonts/montserrat/montserrat-medium-webfont.woff") format("woff");
+    font-family: "GenSenRounded-L";
+    src: url("../fonts/GenSenRounded/GenSenRounded-L.ttc") format(collection), 
+        url("../fonts/GenSenRounded/GenSenRounded-L-TW.ttf") format('truetype'), 
+        url("../fonts/GenSenRounded/GenSenRounded-L-JP.ttf") format('truetype');
     font-style: normal;
     font-weight: normal;
 }
 
 @font-face {
-    font-family: "montserrat-regular";
-    src: url("../fonts/montserrat/montserrat-regular-webfont.woff2") format("woff2"), url("../fonts/montserrat/montserrat-regular-webfont.woff") format("woff");
+    font-family: "GenSenRounded-M";
+    src: url("../fonts/GenSenRounded/GenSenRounded-M.ttc") format(collection),
+        url("../fonts/GenSenRounded/GenSenRounded-M-TW.ttf") format('truetype'), 
+        url("../fonts/GenSenRounded/GenSenRounded-M-JP.ttf") format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "GenSenRounded-R";
+    src: url("../fonts/GenSenRounded/GenSenRounded-R.ttc") format(collection), 
+        url("../fonts/GenSenRounded/GenSenRounded-R-TW.ttf") format('truetype'), 
+        url("../fonts/GenSenRounded/GenSenRounded-R-JP.ttf") format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Iansui-Regular";
+    src: url("../fonts/Iansui-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "jf-openhuninn-2.0";
+    src: url("../fonts/jf-openhuninn-2.0.ttf") format("truetype");
     font-style: normal;
     font-weight: normal;
 }

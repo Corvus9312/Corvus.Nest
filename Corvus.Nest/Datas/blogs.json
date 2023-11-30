@@ -1,0 +1,128 @@
+[
+  {
+    "Id": 1,
+    "Title": "Blazor(1)-前言",
+    "Description": "嗨，我是Corvus，是位軟體工程師。敝人目前接觸Blazor也有一段時間了，在這邊為這段時間的學習做一些筆記，同時也是為新人進行教育訓練的資料。此筆記會介紹Blazor的基本功。",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-04T19:33:01.000Z"
+  },
+  {
+    "Id": 2,
+    "Title": "Blazor(2)-簡介",
+    "Description": "前面有說到，眾多的前端框架對於一個經驗不多的web開發者來說，是有非常多課題需要克服的。不論是巨大的時間成本或是太過多樣複雜的技術要學習，可以說要逐一嘗試每一種框架技術是近乎不可能的。",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-04T22:35:01.000Z"
+  },
+  {
+    "Id": 3,
+    "Title": "Blazor(3)-專案建立",
+    "Description": "Blazor專案可以用Visual studio或Visual studio code + .net CLI來開發， 本人習慣使用Visual studio來開發，所以本篇以Visual studio 2022來做範例。",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-05T18:04:01.000Z"
+  },
+  {
+    "Id": 4,
+    "Title": "Blazor(4)-Blazor 裝載模型",
+    "Description": "我們在建立專案時，有看到Blazor Server及Blazor WebAssembly(wasm)兩種Blazor專案。 這兩個專案就是在簡介時有提到的Server Side及Client Side。本篇我們來探討這兩種專案的架構及優缺點。",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-06T20:57:01.000Z"
+  },
+  {
+    "Id": 5,
+    "Title": "Blazor(5)-Blazor wasm部屬上Github Pages",
+    "Description": "Blazor wasm專案部屬上Github Pages。",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-07T14:33:01.000Z"
+  },
+  {
+    "Id": 6,
+    "Title": "Blazor(6)-專案結構",
+    "Description": "wasm專案結構",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-08T16:06:01.000Z"
+  },
+  {
+    "Id": 7,
+    "Title": "Blazor(7)-Layout",
+    "Description": "現行網站多數都會有一個「外框」，通常這個框會包含Logo、menu、聯絡資訊等，供這個網站的頁面一起使用。 ",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-09T21:00:01.000Z"
+  },
+  {
+    "Id": 8,
+    "Title": "Blazor(8)-Component",
+    "Description": "Blazor的畫面是由Component元件所組成的，這些Component元件可大可小，它可以是頁面，也可以是一個按鈕。 Component包含了Html、Razor與C#程式碼。建立這些Component的好處就是可以重複使用，增加我們程式的維護性。",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-12T23:54:01.000Z"
+  },
+  {
+    "Id": 9,
+    "Title": "Blazor(9)-Routing",
+    "Description": "上篇講Routable component時，我們知道了Routable component是利用@using指示詞來指定路徑的。",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-13T20:00:01.000Z"
+  },
+  {
+    "Id": 10,
+    "Title": "Blazor(10)-Life Cycle",
+    "Description": "Component的生命週期中，有幾個動作是我們可以控制的，依照執行順序為下：1.設定參數時：SetParameterts,2.元件初始化：Onlnitialized,3.設定參數後：OnParametersSet,4.畫面渲染後：OnParametersSet",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-13T20:00:01.000Z"
+  },
+  {
+    "Id": 11,
+    "Title": "Blazor(11)-Code Behind",
+    "Description": "Blazor預設的寫法是Code Inline，他是將Html、Razor及C# Code全部寫在同一個檔案裡。 在邏輯比較單純的情況下，這樣寫並沒有太大問題。 但當程式碼複雜度提高之後，寫在一起可讀性就會很差。 因此在程式碼太複雜時，或是習慣webform的模式將Html及C# Code分開寫的人，就可以使用Code Behind的寫法。",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-16T17:52:01.000Z"
+  },
+  {
+    "Id": 12,
+    "Title": "Blazor(12)-Component Parameters",
+    "Description": "Blazor的畫面是由數個元件所組成的，而這些元件是能夠重複給多個頁面使用的。 而為了讓這些元件能夠更容易的被運用，在使用這些元件時，讓元件間能夠互相傳遞參數。 ",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-17T18:43:01.000Z"
+  },
+  {
+    "Id": 13,
+    "Title": "Blazor(13)-Binding",
+    "Description": "Razor元件可以使用@符號及@bind來為DOM元素提供資料及事件細節功能。@符號能夠將Code區塊內的屬性綁定到Html中。",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-17T18:43:01.000Z"
+  },
+  {
+    "Id": 14,
+    "Title": "Blazor(14)-元件間的事件傳遞",
+    "Description": "我們很常會遇到子元件的需要將事件反應回父元件的時候，這時我們就會用「EventCallBack」將事件及參數回推給父元件， 讓父元件也可以將子元件的執行結果反應回頁面上。",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-19T20:03:01.000Z"
+  },
+  {
+    "Id": 15,
+    "Title": "Blazor(15)-輸入元件(1)",
+    "Description": "前面在介紹資料綁定(Binding)的時候其實就已經有用到文字輸入的元件了， 那除了文字輸入以外，還有很多內建的輸入元件可以使用，像是：RadioBtn、Checkbox、Calendar等等。 ",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-19T21:11:01.000Z"
+  },
+  {
+    "Id": 16,
+    "Title": "Blazor(16)-輸入元件(2)",
+    "Description": "接續Blazor(15)繼續介紹輸入元件，包含了Calendar、Checkbox、InputFile、DropdownList、RadioButton。",
+    "Category": "Blazor",
+    "CreateTime": "2023-10-20T22:36:01.000Z"
+  },
+  {
+    "Id": 17,
+    "Title": "Line bot-建立帳號",
+    "Description": "建立Line bot帳號，並取得Channel Access Token及User ID。",
+    "Category": "LineBot",
+    "CreateTime": "2023-10-25T22:36:01.000Z"
+  },
+  {
+    "Id": 18,
+    "Title": "Line bot-推送基礎訊息",
+    "Description": "使用LineBotSDK來推播訊息。",
+    "Category": "LineBot",
+    "CreateTime": "2023-10-25T22:36:01.000Z"
+  }
+]

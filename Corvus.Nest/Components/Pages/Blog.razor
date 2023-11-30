@@ -1,0 +1,33 @@
+﻿@page "/"
+@page "/blog"
+@page "/blog/{Category}"
+@inherits BlogBase
+
+<PageTitle>Corvus+ Blog</PageTitle>
+
+<div class="blog-content">
+    @if (CategoryTitle is not null)
+    {
+        <h1>@CategoryTitle</h1>
+    }
+    <section class="blog-post">
+        @if (Blogs is not null && Blogs.Any())
+        {
+            @foreach (var blog in Blogs)
+            {
+                <article>
+                    <a href=@blog.Url class="text-dark">
+                        <h2 class="fw-bold">@blog.Title</h2>
+                        <p class="text-secondary d-flex align-items-center">
+                            <i class="bi bi-calendar3"></i>
+                            @blog.CreateTime.ToString("yyyy-MM-dd HH:mm")
+                        </p>
+                        <p class="post-description">
+                            @blog.Description
+                        </p>
+                    </a>
+                </article>
+            }
+        }
+    </section>
+</div>

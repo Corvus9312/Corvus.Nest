@@ -1,0 +1,136 @@
+﻿<h1 class="text-center fw-bolder">Blazor(9)-Routing</h1>
+<div class="post-content indent-2 pt-2">
+    <p>
+        上篇講Routable component時，我們知道了Routable component是利用@using指示詞來指定路徑的。
+        像Blog.razor第一行指定了「@page "/blog"」，因此我們可以開啟「
+        <a href="https://localhost:[port]/BlazorDemo/blog">https://localhost:[port]/BlazorDemo/blog</a>
+        」這個連結來開啟Blog.razor渲染的頁面。
+    </p>
+    <p>
+        這篇會介紹Routing的使用方法及限制。
+    </p>
+</div>
+<h4 class="fw-bold pt-2">多重路由</h4>
+<div class="post-content indent-2">
+    <p>
+        目前demo的Blog首頁還是Index.razor，但首頁並沒有要另外設計，而是希望首頁及blog都顯示Blog.razor的畫面該怎麼辦呢？
+    </p>
+    <p>
+        這時候可以直接將Index.razor刪除，
+        並在Blog.razor中的「@page "/blog"」上方多加「@page "/"」來設定多個路由。
+        這樣的話，我們不論在「
+        <a href="https://localhost:[port]/BlazorDemo/">https://localhost:[port]/BlazorDemo/</a>
+        」還是「
+        <a href="https://localhost:[port]/BlazorDemo/blog">https://localhost:[port]/BlazorDemo/blog</a>
+        」都能夠連線到Blog.razor。
+    </p>
+    <div class="text-center m-2">
+        <div class="code-block">
+            <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">
+@page "/"
+@page "/blog"
+
+&lt;div>
+    &lt;article class="pt-3" style="border-top: 1px solid #F2F2F2; border-bottom: 1px solid #F2F2F2;">
+        &lt;a href="blog/1" class="text-dark">
+            &lt;h2 class="fw-bold fs-4">Blazor-前言&lt;/h2>
+            &lt;p class="text-secondary d-flex align-items-center fs-6">
+                2023-10-13 17:25
+            &lt;/p>
+        &lt;/a>
+    &lt;/article>
+&lt;/div>
+
+@code{
+
+}
+</code>
+</pre>
+            <p>File:Blog.razor</p>
+        </div>
+    </div>
+</div>
+<h4 class="fw-bold pt-2">路由參數</h4>
+<div class="post-content indent-2">
+    調整完路由之後，現在想要再新增一篇文章。
+    那清單的部分很好改，只要複製一份article後，調整內容(title、url、time)就好了：
+    <div class="text-center m-2">
+        <div class="code-block">
+            <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">
+@page "/"
+@page "/blog"
+
+&lt;div>
+    &lt;article class="pt-3" style="border-top: 1px solid #F2F2F2; border-bottom: 1px solid #F2F2F2;">
+        &lt;a href="blog/1" class="text-dark">
+            &lt;h2 class="fw-bold fs-4">Blazor-前言&lt;/h2>
+            &lt;p class="text-secondary d-flex align-items-center fs-6">
+                2023-10-13 17:25
+            &lt;/p>
+        &lt;/a>
+    &lt;/article>
+    &lt;article class="pt-3" style="border-top: 1px solid #F2F2F2; border-bottom: 1px solid #F2F2F2;">
+        &lt;a href="blog/2" class="text-dark">
+            &lt;h2 class="fw-bold fs-4">Blazor-簡介&lt;/h2>
+            &lt;p class="text-secondary d-flex align-items-center fs-6">
+                2023-10-14 15:25
+            &lt;/p>
+        &lt;/a>
+    &lt;/article>
+&lt;/div>
+
+@code{
+
+}
+</code>
+</pre>
+            <p>File:Blog.razor</p>
+        </div>
+    </div>
+    <p>
+        但應該要如何新增文章內容？
+        前面有一頁使用了「/blog/1」，那這邊在新增一頁指定「/blog/2」嗎？
+        那這樣有100篇文章不就會有100支程式了，不可能會這樣做。
+        所以就可以用路由參數來設定從url接參數。
+        把「/blog/1」改成「/blog/{Id:int}」，並宣告一個參數並給予[Parameter]屬性，就可以接到url傳送過來的參數了！
+    </p>
+    <div class="text-center m-2">
+        <div class="code-block">
+            <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">
+@page "/blog/{Id:int}"
+
+&lt;div class="ms-auto pb-5">
+    @Content
+&lt;/div>
+
+@code{
+[Parameter]
+public int Id { get; set; }
+
+public string Content { get; set; } = null!;
+
+protected override void OnInitialized()
+{
+    Content = Id switch
+    {
+        1 => "前言",
+        2 => "簡介",
+        _ => string.Empty
+    };
+}
+}
+</code>
+</pre>
+            <p>File:BlogPost.razor</p>
+        </div>
+    </div>
+    <p>
+        改成路由參數之後就可以依url送進來的文章ID來判斷要顯示哪個文章了。
+        這邊我指定接收的參數是int，這是一個約束條件。表示只能傳入int型別進來。
+        若要傳入的參數是字串的話可以不必宣告條件。其他約束條件可以參考
+        「<a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-3.1#route-constraints">官方文件</a>」
+    </p>
+</div>

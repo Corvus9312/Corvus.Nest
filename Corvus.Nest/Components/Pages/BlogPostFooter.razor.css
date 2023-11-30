@@ -1,0 +1,26 @@
+﻿.post-footer {
+    width: 100%;
+    border-top: solid 1px #F2F2F2
+}
+
+.center-line {
+    position: relative;
+    left: 50%;
+    width: 1px;
+    height: calc(100% - 10px);
+    background-color: #f2f2f2
+}
+
+p {
+    color: black;
+    margin: 0px;
+    text-decoration: none;
+}
+
+i {
+    font-size: 28px;
+}
+
+    i::before {
+        vertical-align: revert;
+    }

@@ -1,0 +1,117 @@
+﻿<h1 class="text-center fw-bolder">Blazor(15)-輸入元件(1)</h1>
+<div class="post-content indent-2 pt-2">
+    <p>
+        前面在介紹資料綁定(Binding)的時候其實就已經有用到文字輸入的元件了，
+        那除了文字輸入以外，還有很多內建的輸入元件可以使用，像是：RadioBtn、Checkbox、Calendar等等。
+        都是browser內鍵就有的元件。今天會介紹一些常用的輸入元件，並把這些輸入元件擴充到留言板讓留言的項目更完整。
+    </p>
+</div>
+<h4 class="fw-bold pt-2">實作前處理</h4>
+<div class="post-content indent-2">
+    <p>
+        因為要把輸入元件擴充到留言板內，因此需先將留言資料擴充成DTO(資料傳輸物件)。
+        因此我們需要建立CommentModel來放置留言資料，並將文章及留言版所傳遞的參數都改為&lt;List&lt;CommentModel>>。
+        接著把原本的輸入框綁定到Comments的內文(Content)中。
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="C#">
+<code class="language-csharp">&lt;div class="comments">
+    @foreach (var comment in Comments)
+    {
+        &lt;div class="comment-content">
+            @comment
+        &lt;/div>
+    }
+    &lt;div class="post-comment">
+        &lt;input type="button" @onclick=ButtonOnClick value="送出" />
+    &lt;/div>
+&lt;/div>
+
+@code {
+    [Parameter]public List&lt;CommentModel> Comments { get; set; } = new();
+
+    public CommentModel Preview { get; set; } = new();
+
+    [Parameter]public EventCallback&lt;List&lt;CommentModel>> ButtonClick { get; set; }
+
+    protected async Task ButtonOnClick()
+    {
+        Comments.Add(Preview);
+
+        Preview = new();
+
+        await ButtonClick.InvokeAsync(Comments);
+    }
+
+    public class CommentModel
+    {
+    }
+}</code>
+</pre>
+        <p class="text-center">Comment.razor</p>
+    </div>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="C#">
+<code class="language-csharp">public class BlogPostBase : ComponentBase
+{
+    ...
+    public List&lt;CommentModel> Comments { get; set; } = new();
+    ...
+    protected void ButtonOnClick(List&lt;CommentModel> comments)
+    {
+        ...
+    }
+}</code>
+</pre>
+        <p class="text-center">BlogPost.razor.cs</p>
+    </div>
+</div>
+<h4 class="fw-bold pt-2">TextBox</h4>
+<div class="post-content indent-2">
+    <p>
+        最常用的輸入元件，大家最熟悉的文字輸入，前面用來輸入文章內容的元件就是Textbox。
+        使用&lt;input>，若沒有指定type時預設就是Textbox。
+        這邊會新增文字框來輸入留言人姓名。
+    </p>
+    <div class="code-block">
+        <pre class="m-0" data-language="razor">
+<code class="language-razor">&lt;p class="m-0">姓名&lt;/p>
+&lt;input type="text" @bind=Preview.Name />
+
+@code
+{
+    public CommentModel Preview { get; set; } = new();
+
+    public class CommentModel
+    {
+        public string Name { get; set; } = null!;
+    }
+}</code>
+</pre>
+    </div>
+</div>
+<h4 class="fw-bold pt-2">TextArea</h4>
+<div class="post-content indent-2">
+    <p>
+        與TextBox一樣是文字輸入框，不同的是，TextBox只允許單行輸入，而TextArea是多行文字輸入元件。
+        這邊新增一個多行文字框來輸入留言內容。
+    </p>
+    <div class="code-block">
+        <pre class="line-numbers m-0" data-language="razor">
+<code class="language-razor">&lt;p class="m-0">留言內容&lt;/p>
+&lt;textarea @bind="Preview.Content" type="text" class="form-control" />
+
+@code
+{
+    public CommentModel Preview { get; set; } = new();
+
+    public class CommentModel
+    {
+        public string Name { get; set; } = null!;
+
+        public string Content { get; set; } = null!;
+    }
+}</code>
+</pre>
+    </div>
+</div>

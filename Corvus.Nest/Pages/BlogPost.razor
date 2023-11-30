@@ -1,8 +1,0 @@
-﻿@page "/blog/{PostID:int}"
-@page "/blog/{Category}/{PostID:int}"
-@inherits BlogPostBase
-
-<article class="post ms-auto pb-5">
-    @((MarkupString)PostHtml)
-</article>
-<BlogPostFooter PreviousPost="PreviousPost" NextPost="NextPost" ></BlogPostFooter>

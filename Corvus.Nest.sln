@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.7.34202.233
+VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Corvus.Nest", "Corvus.Nest\Corvus.Nest.csproj", "{10D90607-4804-4D00-B4ED-ECE8675A377A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corvus.Nest", "Corvus.Nest\Corvus.Nest.csproj", "{30586A18-8A0F-4661-BE1D-3D5DE7BF377D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{10D90607-4804-4D00-B4ED-ECE8675A377A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10D90607-4804-4D00-B4ED-ECE8675A377A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10D90607-4804-4D00-B4ED-ECE8675A377A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10D90607-4804-4D00-B4ED-ECE8675A377A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30586A18-8A0F-4661-BE1D-3D5DE7BF377D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30586A18-8A0F-4661-BE1D-3D5DE7BF377D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30586A18-8A0F-4661-BE1D-3D5DE7BF377D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30586A18-8A0F-4661-BE1D-3D5DE7BF377D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {34EACC44-90F0-4493-9CAD-EABC23A4379B}
+		SolutionGuid = {341C7A36-84EF-4850-92AC-D556F6B0A4E0}
 	EndGlobalSection
 EndGlobal

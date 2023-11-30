@@ -1,8 +1,7 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 body {
-    /*font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
-    font-family: "微軟正黑體", sans-serif;
+    font-family: "GenSenRounded-M", "微軟正黑體", sans-serif;
 }
 
 p {
